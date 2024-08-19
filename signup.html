@@ -27,7 +27,9 @@
                     <a id="signupBtn" class="btn btn-primary shadow" role="button" href="signup.html" style="display: none; padding: 0;padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 0px;margin-right: 6px;margin-left: -1px;width: 140px;height: 29.2px;position: relative;">sign up/login</a>
                     <a class="btn btn-primary shadow" role="button" href="shopping-cart.html" style="padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 4px;margin-right: -1px;margin-left: -1px;width: 53.6px;height: 29.2px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-cart3" style="font-size: 20px;padding-left: 0px;margin-left: -1px;">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
-                    </svg></a>
+                    </svg>
+                    <span id="numberInBasket" class="badge bg-light text-dark rounded-pill align-text-top" style="margin-left: 70%;"></span>
+                </a>
             </div>
         </div>
     </nav>
@@ -121,6 +123,10 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.js"></script>
     <script src="assets/js/bold-and-dark.js"></script>
+    <script src="assets/js/utils.js"></script>
+
+    
+    
     <script>
         document.querySelector('.btn.btn-primary.shadow.d-block.w-100').addEventListener('click', async function() {
         const first_name = document.getElementById("first_name")
@@ -171,20 +177,6 @@
         };
     });
 
-    function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-        const tokenCookie = getCookie("access_token")
-        if (tokenCookie) {
-            const dashboardBtn = document.getElementById("dashboardBtn")
-            dashboardBtn.style.display = "block"        
-        }
-        else {
-            const signupBtn = document.getElementById("signupBtn")
-            signupBtn.style.display = "block"
-        }
     </script>
 </body>
 
