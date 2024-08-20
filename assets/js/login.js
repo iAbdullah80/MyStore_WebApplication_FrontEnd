@@ -14,7 +14,6 @@
     try {
     const response = await fetch("http://localhost:8080/api/user/login", requestOptions);
     const result = await response.text();
-    console.log(result)
     if (response.ok) {
         document.cookie = 'access_token=' + result + '; expires=' + new Date(Date.now() + 600000).toUTCString();
         window.location.href = "dashboard.html"; // Redirect to index.html if the response is 200 OK

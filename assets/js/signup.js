@@ -3,7 +3,6 @@ async function signup() {
     const last_name = document.getElementById("last_name")
     const email = document.getElementById("email")
     const password = document.getElementById("password")
-    console.log(first_name.value, last_name.value, email.value, password.value)
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -23,8 +22,6 @@ async function signup() {
 
     try {
     const response = await fetch("http://localhost:8080/user/signup", requestOptions);
-    const result = await response.text();
-    console.log(result)
     if (response.status === 200) {
         const success_alert = document.getElementById("success_signup");
         const Failed_alert = document.getElementById("Failed_signup");

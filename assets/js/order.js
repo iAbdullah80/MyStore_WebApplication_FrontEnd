@@ -1,3 +1,6 @@
+if (!localStorage.getItem('productsCart')) {
+    window.location.href = '/';
+}
 localStorage.setItem('order', localStorage.getItem('productsCart'));
 var savedCart = JSON.parse(localStorage.getItem('order'));
 var savedInvoice = JSON.parse(localStorage.getItem('invoice'));

@@ -2,15 +2,6 @@ var savedData = JSON.parse(localStorage.getItem('productsData'));
 var savedCart = JSON.parse(localStorage.getItem('productsCart'));
 
 
-
-function displayProductsInCart(cart) {
-    
-    cart.forEach(productId => {
-        const product = data.find(item => item.number === productId);
-        
-    });
-}
-
 function calculateTotalPrice(cart) {
     let totalPrice = 0;
     try{
