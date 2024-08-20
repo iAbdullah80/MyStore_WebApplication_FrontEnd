@@ -1,8 +1,13 @@
 function calculateTotalPrice(cart) {
     let totalNumberOfProducts = 0;
+    try{
     cart.forEach(item => {
         totalNumberOfProducts += item.basketCounter;
     });
+}
+catch (error) {
+    console.log(error)
+}
     const basketProducts = document.getElementById('numberInBasket');
     basketProducts.innerHTML = totalNumberOfProducts;
 }

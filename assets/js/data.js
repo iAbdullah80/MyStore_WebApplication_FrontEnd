@@ -13,7 +13,6 @@ async function fetchData() {
     try {
         const response = await fetch("http://localhost:8080/api/products/all", requestOptions);
         const result = await response.json();
-        console.log('result', result);
         return result;
     } catch (error) {
         console.log('error', error);
@@ -81,7 +80,6 @@ function insertDataIntoHTMLClass(data, className) {
     function addToCart(event) {
         const productId = event.target.id;
         // Add your logic to add the product to the cart
-        console.log(`Product with ID ${productId} added to cart.`);
         let productInCart = false;
     
     
@@ -108,18 +106,9 @@ function insertDataIntoHTMLClass(data, className) {
                 
             });
         }
-        
-        console.log(cart);
+    
         localStorage.setItem('productsCart', JSON.stringify(cart));
         
         
     }
 }
-
-
-
-// Usage:
-
-// Path: assets/js/app.js
-
-// insertDataIntoHTMLClass(data, 'dfgdfgdfg');

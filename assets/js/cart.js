@@ -2,19 +2,25 @@ var savedData = JSON.parse(localStorage.getItem('productsData'));
 var savedCart = JSON.parse(localStorage.getItem('productsCart'));
 
 
+
 function displayProductsInCart(cart) {
-    console.log("Products in the shopping cart:");
+    
     cart.forEach(productId => {
         const product = data.find(item => item.number === productId);
-        console.log(`- ${product.name} (${product.price})`);
+        
     });
 }
 
 function calculateTotalPrice(cart) {
     let totalPrice = 0;
+    try{
     cart.forEach(item => {
         totalPrice += item.price * item.basketCounter;
     });
+}
+catch (error) {
+    console.log(error)
+}
     return totalPrice;
 }
 
@@ -27,7 +33,7 @@ function shoppingCart(data, cart, className) {
     }
     
     let html = '';
-    
+    try{
     cart.forEach(item => {
         html += `
     <div class="items">
@@ -54,6 +60,10 @@ function shoppingCart(data, cart, className) {
 
     `;
     });
+}
+catch (error) {
+    console.log(error)
+}
     
     container.innerHTML = html;
     
@@ -85,7 +95,6 @@ function shoppingCart(data, cart, className) {
 shoppingCart(savedData, savedCart, 'shopping-cart');
 
 const totalPrice = calculateTotalPrice(JSON.parse(localStorage.getItem('productsCart')));
-console.log("Total Price:", totalPrice);
 
 function updateSummary(totalPrice) {
     const summaryContainer = document.getElementById('summary_class');
@@ -101,7 +110,7 @@ function updateSummary(totalPrice) {
     <h4><span class="text">Discount</span><span class="price">$0</span></h4>
     <h4><span class="text">Shipping</span><span class="price">$0</span></h4>
     <h4><span class="text">Total</span><span class="price">$${totalPrice}</span></h4>
-    <button class="btn btn-primary btn-lg d-block w-100" id="checkout_button" type="button">Checkout</button>
+    <button class="btn btn-primary btn-lg d-block w-100" id="checkout_button" type="button" onclick="checkout()">Checkout</button>
     `;
 }
 updateSummary(totalPrice);

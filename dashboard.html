@@ -23,11 +23,9 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
-                </ul><a id="dashboardBtn" class="btn btn-primary shadow" role="button" href="dashboard.html" style="display: none; padding: 0;padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 0px;margin-right: 6px;margin-left: -1px;width: 53.6px;height: 29.2px;position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person" style="font-size: 20px;padding-left: 0px;margin-left: -1px;">
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"></path>
-                </svg></a>
+                </ul><a id="dashboardBtn" class="btn btn-primary shadow" role="button" style="display: none; padding: 0;padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 0px;margin-right: 6px;margin-left: -1px;width: 140px;height: 29.2px;position: relative;">Log out</a>
                 <a id="signupBtn" class="btn btn-primary shadow" role="button" href="signup.html" style="display: none; padding: 0;padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 0px;margin-right: 6px;margin-left: -1px;width: 140px;height: 29.2px;position: relative;">sign up/login</a>
-                <a class="btn btn-primary shadow" role="button" href="shopping-cart.html" style="padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 4px;margin-right: -1px;margin-left: -1px;width: 53.6px;height: 29.2px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-cart3" style="font-size: 20px;padding-left: 0px;margin-left: -1px;">
+                <a class="btn btn-primary shadow" role="button" href="checkout.html" style="padding-top: 0px;padding-bottom: 5px;padding-left: 6px;padding-right: 5px;margin: 4px;margin-right: -1px;margin-left: -1px;width: 53.6px;height: 29.2px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-cart3" style="font-size: 20px;padding-left: 0px;margin-left: -1px;">
                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
                 </svg>
                 <span id="numberInBasket" class="badge bg-light text-dark rounded-pill align-text-top" style="margin-left: 70%;"></span>
@@ -58,39 +56,16 @@
             </div>
         </section>
         <main class="container">
-          
-        
           <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <h6 class="border-bottom pb-2 mb-0">Recent orders</h6>
-            <div class="d-flex text-muted pt-3">
-              
-        
-              <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">Order #</strong>
-                Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
-              </p>
-            </div>
-            <div class="d-flex text-muted pt-3">
-              
-        
-              <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">Order #</strong>
-                Some more representative placeholder content, related to this other user. Another status update, perhaps.
-              </p>
-            </div>
-            <div class="d-flex text-muted pt-3">
-              
-        
-              <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">Order #</strong>
-                This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
-              </p>
-            </div>
-            <small class="d-block text-end mt-3">
-              <a href="#">All orders</a>
-            </small>
+              <h6 class="border-bottom pb-2 mb-0">Recent orders</h6>
+              <div id="invoice-list">
+                  <!-- Dynamic content will be inserted here -->
+              </div>
+              <small class="d-block text-end mt-3">
+                  <a href="#">All orders</a>
+              </small>
           </div>
-        </main>
+      </main>
           
         
         <template id="auto-clicker-autofill-popup">
@@ -392,46 +367,26 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.js"></script>
     <script src="assets/js/bold-and-dark.js"></script>
+    <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/utils.js"></script>
 s
     <script>
-        // Function to send the token to the server
-        
-        
-        async function validateToken() {
-            const token = tokenCookie;
-            const myHeaders = new Headers();
-            myHeaders.append("Authorization", "Bearer " + token);
-            myHeaders.append("Cookie", "JSESSIONID=79B21BD9A73E7F7C93B8028CEA565AAF");
+      // Run the validation function before the page loads
+      window.addEventListener('DOMContentLoaded', async (event) => {
+           const bol = await validateToken();
+           if (bol) {
+            const data = await getData();
+            document.querySelector('.fw-bold.text-success.mb-2').textContent = "Hello, "+data.name;
+            const invoices = await getInvoices(data.id);
+            console.log(invoices);
+            renderInvoices(invoices)
 
-            const requestOptions = {
-            method: "GET",
-            headers: myHeaders,
-            redirect: "follow"
-            };
-
-            try {
-            const response = await fetch("http://localhost:8080/api/user/data", requestOptions);
-            const result = await response.text();
-            if (response.ok) {
-                    document.querySelector('.fw-bold.text-success.mb-2').textContent = "Hello, "+result;
-                } else {
-                    // If the response is not 200 OK, redirect to /root
-                    window.location.replace("/");
-                    
-                }
-            } catch (error) {
-                // If there's an error in the request, redirect to /root
-                window.location.replace("/");
-                
-            };
-            
-        }
-
-        // Run the validation function before the page loads
-        window.addEventListener('DOMContentLoaded', async (event) => {
-            await validateToken();
+           }
+           else {
+            window.location.replace("/");
+           }
         });
+        
     </script>
 </body>
 
