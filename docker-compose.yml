@@ -16,7 +16,7 @@ services:
   app:
     image: spring-server
     ports:
-      - "5500:5500"
+      - "8443:8443"
     depends_on:
       - db
     networks:

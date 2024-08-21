@@ -33,7 +33,7 @@ function shoppingCart(data, cart, className) {
                 <div class="col-md-3">
                     <div class="product-image"><img class="img-fluid d-block mx-auto image" src="${item.image}"></div>
                 </div>
-                <div class="col-md-5 product-info"><a class="product-name" href="product/${parseInt(item.number, 10)}.html">${item.name}</a>
+                <div class="col-md-5 product-info"><a class="product-name" href="product/${parseInt(item.number, 10)}">${item.name}</a>
                     <div class="product-specs">
                         <div><span>Description:&nbsp;</span><span class="value">${item.description}</span></div>
                     </div>
