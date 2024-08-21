@@ -11,7 +11,7 @@ async function fetchData() {
     };
 
     try {
-        const response = await fetch("http://localhost:5500/api/products/all", requestOptions);
+        const response = await fetch("https://mystore-api.alahideb.me:8443/api/products/all", requestOptions);
         const result = await response.json();
         return result;
     } catch (error) {

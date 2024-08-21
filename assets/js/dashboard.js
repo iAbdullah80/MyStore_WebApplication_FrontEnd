@@ -10,7 +10,7 @@ async function getInvoices(userId) {
     };
 
     try {
-    const response = await fetch(`http://localhost:5500/api/invoices/user/${userId}`, requestOptions);
+    const response = await fetch(`https://mystore-api.alahideb.me:8443/api/invoices/user/${userId}`, requestOptions);
     const result = await response.json();
     
     if (response.ok) {
@@ -41,7 +41,7 @@ async function getData() {
     };
 
     try {
-    const response = await fetch("http://localhost:5500/api/user/data", requestOptions);
+    const response = await fetch("https://mystore-api.alahideb.me:8443/api/user/data", requestOptions);
     const result = await response.json();
     
     if (response.ok) {
@@ -72,7 +72,7 @@ async function validateToken() {
     };
 
     try {
-    const response = await fetch("http://localhost:5500/api/user/checkToken", requestOptions);
+    const response = await fetch("https://mystore-api.alahideb.me:8443/api/user/checkToken", requestOptions);
     const result = await response.json();
     
     if (response.ok) {
@@ -140,7 +140,7 @@ redirect: "follow"
 };
 
 try {
-const response = await fetch("http://localhost:5500/api/user/logout", requestOptions);      
+const response = await fetch("https://mystore-api.alahideb.me:8443/api/user/logout", requestOptions);      
 if (response.ok) {
   document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   window.location.replace("/");

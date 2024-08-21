@@ -21,7 +21,7 @@ async function signup() {
     };
 
     try {
-    const response = await fetch("http://localhost:5500/user/signup", requestOptions);
+    const response = await fetch("https://mystore-api.alahideb.me:8443/user/signup", requestOptions);
     if (response.status === 200) {
         const success_alert = document.getElementById("success_signup");
         const Failed_alert = document.getElementById("Failed_signup");
