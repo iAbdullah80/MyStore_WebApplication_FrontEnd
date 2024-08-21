@@ -10,10 +10,8 @@ localStorage.removeItem('invoice');
 
 
 function displayProductsInCart(cart) {
-    console.log("Products in the shopping cart:");
     cart.forEach(productId => {
         const product = data.find(item => item.number === productId);
-        console.log(`- ${product.name} (${product.price})`);
     });
 }
 
@@ -24,7 +22,6 @@ function calculateTotalPrice(cart) {
     });
     return totalPrice;
 }
-console.log("Total Price:", savedInvoice);
 if (savedInvoice) {
     displayProductsInCart(savedInvoice);
 }
@@ -73,7 +70,6 @@ function shoppingCart(cart, className) {
 shoppingCart(savedCart, 'shopping-cart');
 
 const totalPrice = calculateTotalPrice(JSON.parse(localStorage.getItem('productsCart')));
-console.log("Total Price:", totalPrice);
 
 function updateSummary(totalPrice) {
     const summaryContainer = document.getElementById('summary_class');

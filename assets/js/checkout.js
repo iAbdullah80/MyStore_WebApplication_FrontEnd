@@ -38,7 +38,7 @@ async function checkout() {
     };
     
     // change the userId to the actual user id
-    await fetch(`http://localhost:8080/api/orders/create-checkout-session?userId=${userid}`, requestOptions)
+    await fetch(`http://localhost:5500/api/orders/create-checkout-session?userId=${userid}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             localStorage.setItem('sessionId', result.sessionId),
@@ -67,7 +67,7 @@ async function validateToken() {
     };
 
     try {
-    const response = await fetch("http://localhost:8080/api/user/data", requestOptions);
+    const response = await fetch("http://localhost:5500/api/user/data", requestOptions);
     const result = await response.json();
     
     if (response.ok) {

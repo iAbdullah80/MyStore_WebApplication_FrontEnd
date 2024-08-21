@@ -11,7 +11,7 @@ async function fetchData() {
     };
 
     try {
-        const response = await fetch("http://localhost:8080/api/products/all", requestOptions);
+        const response = await fetch("http://localhost:5500/api/products/all", requestOptions);
         const result = await response.json();
         return result;
     } catch (error) {
