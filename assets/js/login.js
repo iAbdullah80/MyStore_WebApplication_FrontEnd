@@ -12,7 +12,7 @@
     };
 
     try {
-    const response = await fetch("https://mystore-api.alahideb.me:8443/api/user/login", requestOptions);
+    const response = await fetch("https://mystore-api.alahideb.me:8443/user/login", requestOptions);
     const result = await response.text();
     if (response.ok) {
         document.cookie = 'access_token=' + result + '; path=/'+ '; expires=' + new Date(Date.now() + 600000).toUTCString();
