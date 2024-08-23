@@ -17,6 +17,10 @@ async function checkout() {
         return;
     }
     const userid =  await getUserId();
+    if (!userid) {
+        alert('You need to be logged in to checkout');
+        return;
+    }
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 

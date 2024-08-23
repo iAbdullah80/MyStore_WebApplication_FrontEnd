@@ -1,7 +1,7 @@
 var savedData = JSON.parse(localStorage.getItem('productsData'));
 let cart = JSON.parse(localStorage.getItem('productsCart')) || [];
 var path = window.location.pathname;
-var productNo = path.split("/").pop()[0];
+var productNo = path.split("/")[2];
 
 function insertDataIntoHTMLClass(data, className) {
     const container = document.getElementById(`${className}`);
@@ -26,7 +26,11 @@ function insertDataIntoHTMLClass(data, className) {
         <h3>${data[productNo-1].name}</h3>
         <div class="price">
             <h3>$${data[productNo-1].price}</h3>
-        </div><button class="btn btn-primary" id='${data[productNo-1].number}' type="button">Buy Now</button>
+        </div>
+        <button class="btn btn-primary" id='${data[productNo-1].number}' type="button">
+                                <span class="button-text">Buy Now</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
         <div class="summary">
             <p>${data[productNo-1].description}</p>
         </div>
@@ -42,37 +46,65 @@ function insertDataIntoHTMLClass(data, className) {
     buttons.forEach(button => {
         button.addEventListener('click', addToCart);
     });
-}
-function addToCart(event) {
-    event.preventDefault();
-    const productId = event.target.id;
-    // Add your logic to add the product to the cart
-    let productInCart = false;
+    async function addToCart(event) {
+        const button = event.target.closest('.btn');
+        const productId = button.id;
+        const buttonText = button.querySelector('.button-text');
+        const spinner = button.querySelector('.spinner-border');
 
+        // Disable the button and show spinner
+        button.disabled = true;
+        buttonText.classList.add('d-none');
+        spinner.classList.remove('d-none');
 
-    cart.forEach(item => {
-        if (item.number == productId) {
-            item.basketCounter += 1;
-            productInCart = true;
-            alert(`${item.name} added to cart again!`);
-        }
-    });
-    if (!productInCart) {
-        savedData.forEach(item => {
+        let productInCart = false;
+
+        cart.forEach(item => {
             if (item.number == productId) {
-                if (!item.basketCounter) {
-                    item.basketCounter = 1;
-                }
-                else if (item.basketCounter > 1) {
-                    item.basketCounter += 1;
-                }
-                cart.push(item);
-                alert(`${item.name} added to cart!`);
+                item.basketCounter += 1;
+                productInCart = true;
             }
-
-            
         });
+
+        if (!productInCart) {
+            data.forEach(item => {
+                if (item.number == productId) {
+                    if (!item.basketCounter) {
+                        item.basketCounter = 1;
+                    }
+                    else if (item.basketCounter > 1) {
+                        item.basketCounter += 1;
+                    }
+                    cart.push(item);
+                }
+            });
+        }
+
+        localStorage.setItem('productsCart', JSON.stringify(cart));
+
+        // Simulate a delay (e.g., for an API call)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // Re-enable the button and hide spinner
+        button.disabled = false;
+        buttonText.classList.remove('d-none');
+        spinner.classList.add('d-none');
+
+        // Change button color to green for 3 seconds
+    const originalColor = button.style.backgroundColor;
+    button.style.backgroundColor = 'green';
+
+    setTimeout(() => {
+        button.style.backgroundColor = originalColor;
+    }, 3000);
+        // Show alert after the button is back to normal
+        const addedItem = cart.find(item => item.number == productId);
+        if (addedItem) {
+            buttonText.innerText = 'Added!';
+            setTimeout(() => {
+                buttonText.innerText = 'Add to Cart!';
+            }, 3000);
+        }
     }
-    localStorage.setItem('productsCart', JSON.stringify(cart));
 }
 insertDataIntoHTMLClass(savedData, 'testdsgjsdjg444');
